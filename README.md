@@ -5,5 +5,6 @@
 - Actually this was a Kaggle problem.  
 - Initially I used RandomForestRegressor but that was not giving very satisfying results so I used RandomSearchCV to find best hyerparameters and came up witha a  good model with r2 score of around 0.82.  
 - Also used ExtraTreeRegressor to visualize the importances of all the features.  
+- Just run app.py to see the gui on local host.  
   
 ![](ss.png)

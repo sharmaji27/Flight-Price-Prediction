@@ -226,35 +226,30 @@ def predict():
         if (Destination == 'Cochin'):
             d_Cochin = 1
             d_Delhi = 0
-            d_New_Delhi = 0
             d_Hyderabad = 0
             d_Kolkata = 0
         
         elif (Destination == 'Delhi'):
             d_Cochin = 0
             d_Delhi = 1
-            d_New_Delhi = 0
             d_Hyderabad = 0
             d_Kolkata = 0
 
         elif (Destination == 'Hyderabad'):
             d_Cochin = 0
             d_Delhi = 0
-            d_New_Delhi = 0
             d_Hyderabad = 1
             d_Kolkata = 0
 
         elif (Destination == 'Kolkata'):
             d_Cochin = 0
             d_Delhi = 0
-            d_New_Delhi = 0
             d_Hyderabad = 0
             d_Kolkata = 1
 
         else:#Banglore
             d_Cochin = 0
             d_Delhi = 0
-            d_New_Delhi = 0
             d_Hyderabad = 0
             d_Kolkata = 0
 

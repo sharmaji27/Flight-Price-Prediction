@@ -237,13 +237,6 @@ def predict():
             d_Hyderabad = 0
             d_Kolkata = 0
 
-        elif (Destination == 'New_Delhi'):
-            d_Cochin = 0
-            d_Delhi = 0
-            d_New_Delhi = 1
-            d_Hyderabad = 0
-            d_Kolkata = 0
-
         elif (Destination == 'Hyderabad'):
             d_Cochin = 0
             d_Delhi = 0
@@ -292,8 +285,7 @@ def predict():
             d_Cochin,
             d_Delhi,
             d_Hyderabad,
-            d_Kolkata,
-            d_New_Delhi]])
+            d_Kolkata]])
 
         output = round(output[0],2)
         return render_template('home.html',predictions='You will have to Pay approx Rs. {}'.format(output))

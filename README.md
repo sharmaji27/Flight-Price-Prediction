@@ -7,6 +7,6 @@
 - Also used ExtraTreeRegressor to visualize the importances of all the features.  
 - Just run app.py to see the gui on local host.  
   
-Do visit my blog for better explanations: https://machinelearningprojects.net/
+Do visit my blog for better explanations: https://machinelearningprojects.net/flight-price-prediction/
   
 ![](ss.png)

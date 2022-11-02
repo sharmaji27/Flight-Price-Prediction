@@ -1,0 +1,196 @@
+<html lang="en">
+<style>
+    body {
+        background-image: url('/static/img/bg7.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
+    }
+
+    .navbar {
+        background-color: #333333;
+    }
+
+    a {
+        color: #f1f9f9;
+    }
+
+    a:hover {
+        color: #f0f0f0;
+    }
+
+    .card {
+        border-radius: 1rem;
+        background-color: hotpink;
+    }
+</style>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Prediction</title>
+
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" style='color: #e1f4f3;'>FLIGHT PRICE</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <form action="\predict" method="post">
+
+            <div class="row my-3">
+
+                <div class="col-sm-6">
+                    <div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
+                        <div class="card-body">
+                            <h5 class="card-title">Departure Date</h5>
+                            <input type="datetime-local" name="Dep_Time" id="Dep_Time" required="required">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                    <div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
+                        <div class="card-body">
+                            <h5 class="card-title">Arrival Date</h5>
+                            <input type="datetime-local" name="Arrival_Time" id="Arrival_Time" required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row my-3">
+
+                <div class="col-sm-6">
+                    <div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
+                        <div class="card-body">
+                            <h5 class="card-title">Source</h5>
+                            <select name="Source" id="Source" required="required">
+                                <option value="Delhi">Delhi</option>
+                                <option value="Kolkata">Kolkata</option>
+                                <option value="Banglore">Banglore</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Chennai">Chennai</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
+                        <div class="card-body">
+                            <h5 class="card-title">Destination</h5>
+                            <select name="Destination" id="Destination" required="required">
+                                <option value="Cochin">Cochin</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Banglore">Banglore</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Kolkata">Kolkata</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row my-3">
+
+                <div class="col-sm-6">
+                    <div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
+                        <div class="card-body">
+                            <h5 class="card-title">Stopage</h5>
+                            <select name="stops" required="required">
+                                <option value="0">Non-Stop</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="card" style='border-radius: 2.15rem;opacity: 0.7;'>
+                        <div class="card-body">
+                            <h5 class="card-title">Which Airline you want to travel?</h5>
+                            <select name="airline" id="airline" required="required">
+                                <option value="Jet Airways">Jet Airways</option>
+                                <option value="IndiGo">IndiGo</option>
+                                <option value="Air India">Air India</option>
+                                <option value="Multiple carriers">Multiple carriers</option>
+                                <option value="SpiceJet">SpiceJet</option>
+                                <option value="Vistara">Vistara</option>
+                                <option value="Air Asia">Air Asia</option>
+                                <option value="GoAir">GoAir</option>
+                                <option value="Multiple carriers Premium economy">Multiple carriers Premium economy
+                                </option>
+                                <option value="Jet Airways Business">Jet Airways Business</option>
+                                <option value="Vistara Premium economy">Vistara Premium economy</option>
+                                <option value="Trujet">Trujet</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div style='text-align:center'>
+                <button type="submit" value='Submit' class="btn btn-primary px-5" style="font-size: 25px;">Submit</button>
+            </div>
+        </form>
+
+        <h1 style='text-align: center;color: ivory;'><b>{{ predictions }}</b></h1>
+
+ 
+        <footer class='text-light bg-dark position-fixed fixed-bottom '>
+            <p class='text-center py my-0'>
+              Made with ❤ by Abhishek Sharma 
+            </p>
+        </footer>
+    </div>
+
+
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
